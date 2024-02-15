@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+	<div id="popup" class="popup">
+		Lets go to our tour
+
+		<button onclick="hidePopup()">Go</button>
+	</div>
+	<audio id="backgroundMusic" autoplay loop>
+		<source src="music.mp3" type="audio/mp3">
+		Your browser does not support the audio element.
+	</audio>
+	<img class="header" src="header.png" alt="">
+	<section>
+		<img class="image" src="1.png" alt="Parallax Image">
+		<div class="content">
+			<h1>Reports</h1>
+			<p> Access comprehensive analytics for informed decision-making and strategy formulation.</p>
+		</div>
+	</section>
+	<section>
+		<img class="image" src="2.png" alt="Parallax Image">
+		<div class="content">
+			<h1>Testing / RTP</h1>
+			<p> Ensure gaming fairness and optimize returns with rigorous testing and RTP management.</p>
+		</div>
+	</section>
+	<section>
+		<img class="image" src="3.png" alt="Parallax Image">
+		<div class="content">
+			<h1>Jackpots / Templates</h1>
+			<p>Streamline jackpot management and template usage for efficient operations and big win excitement.</p>
+		</div>
+	</section>
+	<section>
+		<img class="image" src="4.png" alt="Parallax Image">
+		<div class="content">
+			<h1>Games. Pricing</h1>
+			<p>Discover diverse gaming options while managing costs effectively with flexible pricing strategies.</p>
+		</div>
+	</section>
+	<section>
+		<img class="image" src="5.png" alt="Parallax Image">
+		<div class="content">
+			<h1>Games / Sessions</h1>
+			<p>Seamlessly track gaming sessions for enhanced user experience and data-driven insights.</p>
+		</div>
+	</section>
+	<section>
+		<img class="image" src="6.png" alt="Parallax Image">
+		<div class="content">
+			<h1>Oraganization settings</h1>
+			<p>CRM settings to organizational needs for streamlined operations and improved efficiency.</p>
+		</div>
+	</section>
+	<section>
+		<img class="image" src="7.png" alt="Parallax Image">
+		<div class="content">
+			<h1>Game's profile / Client settings</h1>
+			<p>Customize gaming profiles and client settings for personalized experiences and heightened engagement.</p>
+		</div>
+	</section>
+	<script>
+		document.addEventListener("scroll", function () {
+			const scrollTop = window.scrollY;
+			const parallaxElements = document.querySelectorAll(".image");
+
+			parallaxElements.forEach(function (element) {
+				const parallaxOffset = (scrollTop - element.parentElement.offsetTop) / 2;
+				const scaleValue = 1 + (parallaxOffset / 3000); // Adjust the factor for the desired zoom effect
+				const opacityValue = 1 - (parallaxOffset / 2500); // Adjust the factor for the desired opacity effect
+				element.style.transform = "scale(" + scaleValue + ")";
+				element.style.opacity = opacityValue;
+			});
+		});
+	</script>
+	<script>
+		function hidePopup() {
+			document.getElementById("popup").classList.add('is-hidden');
+		}
+	</script>
+	<script>
+		document.addEventListener("DOMContentLoaded", function () {
+			// Set volume to 10%
+			document.getElementById("backgroundMusic").volume = 0.01;
+
+			// Function to start music
+			function startMusic() {
+				document.getElementById("backgroundMusic").play();
+				// Remove the event listener once music starts playing
+				document.removeEventListener("click", startMusic);
+			}
+
+			// Add event listener to start music when user clicks
+			document.addEventListener("click", startMusic);
+		});
+	</script>
+
+</body>
+
+</html>
